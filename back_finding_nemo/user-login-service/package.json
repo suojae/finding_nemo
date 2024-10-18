@@ -1,0 +1,19 @@
+{
+  "name": "user-login-service",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node dist/user-login-service/src/main.js",
+    "build": "nest build",
+    "start:dev": "nest start --watch"
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/microservices": "^8.0.0",
+    "class-validator": "^0.14.1",
+    "rxjs": "^7.0.0"
+  },
+  "imports": {
+    "#helpers": "./helpers.js"
+  }
+}

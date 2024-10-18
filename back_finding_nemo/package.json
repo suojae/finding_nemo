@@ -1,11 +1,18 @@
 {
   "scripts": {
-    "test": "jest"
+    "start": "nest start",
+    "test": "jest",
+    "build": "nest build",
+    "start:dev": "nest start --watch"
   },
   "dependencies": {
-    "@nestjs/microservices": "^10.4.5"
+    "@nestjs/microservices": "^10.4.5",
+    "@nestjs/platform-express": "^10.4.5"
   },
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "imports": {
+    "#helpers": "./helpers.js"
   }
 }
