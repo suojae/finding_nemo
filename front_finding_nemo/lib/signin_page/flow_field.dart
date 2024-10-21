@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-final class MainView extends StatelessWidget {
+final class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +67,7 @@ class _FlowFieldScreenState extends State<FlowFieldScreen> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFE8EBFF), // Background color
+      backgroundColor: Color(0xFFE8EBFF),
       body: GestureDetector(
         onTap: () {
           setState(() {

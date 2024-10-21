@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:front_finding_nemo/signin_page/flow_field.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'main_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         hoverColor: Colors.transparent,
       ),
-      home: MainView(),
+      home: SignInView(),
     );
   }
 }
