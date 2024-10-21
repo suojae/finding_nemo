@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:front_finding_nemo/signin_page/flow_field.dart';
+import 'package:front_finding_nemo/signin_page/signin_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());

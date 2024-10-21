@@ -1,26 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-final class SignInView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: FlowFieldScreen(),
-    );
-  }
-}
-
-class FlowFieldApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: FlowFieldScreen(),
-    );
-  }
-}
-
-class FlowFieldScreen extends StatefulWidget {
+final class FlowFieldScreen extends StatefulWidget {
   @override
   _FlowFieldScreenState createState() => _FlowFieldScreenState();
 }

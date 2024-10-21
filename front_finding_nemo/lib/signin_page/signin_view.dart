@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'flow_field.dart';
 import 'frosted_card.dart';
 
-final class MainView extends StatelessWidget {
+final class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +11,6 @@ final class MainView extends StatelessWidget {
         children: [
           FlowFieldScreen(),
 
-          // Blurred backdrop
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 2.8, sigmaY: 2.8),
             child: Container(
@@ -21,13 +20,13 @@ final class MainView extends StatelessWidget {
 
           Positioned.fill(
             child: IgnorePointer(
-              ignoring: true, // Disable touch events for everything outside FrostedCard
+              ignoring: true,
               child: Container(),
             ),
           ),
 
           Center(
-            child: FrostedCard(), // Touch events inside FrostedCard are allowed
+            child: FrostedCard(),
           ),
         ],
       ),

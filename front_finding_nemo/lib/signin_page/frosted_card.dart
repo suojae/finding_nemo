@@ -4,6 +4,8 @@ import 'dart:ui';
 final class FrostedCard extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  FrostedCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
