@@ -1,12 +1,11 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-// MainView class implementing your particle system
-class MainView extends StatelessWidget {
+final class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FlowFieldScreen(), // Your existing particle view
+      body: FlowFieldScreen(),
     );
   }
 }
