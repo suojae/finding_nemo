@@ -28,13 +28,11 @@ class FlowFieldScreen extends StatefulWidget {
 class _FlowFieldScreenState extends State<FlowFieldScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   List<Particle> particles = [];
-  int initialParticleCount = 500; // Initial particle count
-  int maxParticleCount = 2500; // 10x particle count over time
-  double scl = 15; // Scale of the flow field
+  final int particleCount = 2000;
+  double scl = 20;
   int cols = 0, rows = 0;
   List<Offset> flowfield = [];
   bool paused = false;
-  Duration totalDuration = Duration(minutes: 3); // 채우는 시간 타겟팅
 
   @override
   void initState() {
@@ -43,12 +41,7 @@ class _FlowFieldScreenState extends State<FlowFieldScreen> with SingleTickerProv
     _controller = AnimationController(vsync: this, duration: Duration(seconds: 60))
       ..addListener(() {
         if (!paused) {
-          setState(() {
-            int incrementRate = maxParticleCount ~/ (totalDuration.inSeconds);
-            if (particles.length < maxParticleCount) {
-              particles.addAll(List.generate(incrementRate, (_) => Particle(MediaQuery.of(context).size)));
-            }
-          });
+          setState(() {});
         }
       })
       ..repeat();
@@ -59,7 +52,7 @@ class _FlowFieldScreenState extends State<FlowFieldScreen> with SingleTickerProv
       cols = (screenSize.width / scl).floor();
       rows = (screenSize.height / scl).floor();
 
-      particles = List.generate(initialParticleCount, (_) => Particle(screenSize));
+      particles = List.generate(particleCount, (_) => Particle(screenSize));
 
       flowfield = List.generate(cols * rows, (_) => Offset.zero);
     });
@@ -74,7 +67,7 @@ class _FlowFieldScreenState extends State<FlowFieldScreen> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEEF5FF), // 백그라운드 컬러
+      backgroundColor: Color(0xFFE8EBFF), // Background color
       body: GestureDetector(
         onTap: () {
           setState(() {
@@ -103,7 +96,7 @@ class OceanFlowPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (cols == 0 || rows == 0) return;
 
-    Offset constantDirection = Offset(0.5, 0.2); // 파티클 방향조절
+    Offset constantDirection = Offset(0.5, 0.2); // Particle direction control
 
     for (int y = 0; y < rows; y++) {
       for (int x = 0; x < cols; x++) {
@@ -126,7 +119,7 @@ class OceanFlowPainter extends CustomPainter {
   }
 }
 
-class Particle {
+final class Particle {
   Offset pos;
   Offset vel;
   Offset acc;
@@ -137,7 +130,8 @@ class Particle {
       : pos = Offset(Random().nextDouble() * screenSize.width, Random().nextDouble() * screenSize.height),
         vel = Offset.zero,
         acc = Offset.zero,
-        maxSpeed = Random().nextDouble() * 1, // 스피드 조절
+        maxSpeed = Random().nextDouble() * 1.5,
+        // Speed control
         color = _randomOceanColor();
 
   static Color _randomOceanColor() {
