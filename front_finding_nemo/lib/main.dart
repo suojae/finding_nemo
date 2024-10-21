@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'main_view.dart'; // Import the MainView
+import 'package:google_fonts/google_fonts.dart';
+import 'main_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,6 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        textTheme: GoogleFonts.neuchaTextTheme(),
         splashFactory: NoSplash.splashFactory,
         highlightColor: Colors.transparent,
         hoverColor: Colors.transparent,

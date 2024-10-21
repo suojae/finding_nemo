@@ -35,13 +35,11 @@ final class FrostedCard extends StatelessWidget {
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
-                      fontFamily: 'Roboto',
                     ),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 30),
 
-                  // Nickname/ID Input Field
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Please enter your nickname',
@@ -61,7 +59,6 @@ final class FrostedCard extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
 
-                  // Password Input Field
                   TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
