@@ -21,9 +21,9 @@ jobs:
     - name: Deploy via SSH
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << 'EOF'
-        cd 로키리눅스 가상화해둔곳 경로 나중에 입력
+        # cd 로키리눅스 가상화해둔곳 경로 나중에 입력
         git pull origin main
-        ./deploy_script.sh  # 리눅스에 저장한 스크립트 파일
+        # ./deploy_script.sh  리눅스에 저장한 스크립트 파일
         echo "Deployment completed successfully."
         EOF
 
