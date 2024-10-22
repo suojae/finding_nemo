@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:flutter/material.dart';
 
-final class FrostedCard extends StatelessWidget {
+class SignInCard extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final VoidCallback onSignUpTap;
 
-  FrostedCard({super.key});
+  SignInCard({super.key, required this.onSignUpTap});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,6 @@ final class FrostedCard extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 30),
-
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Please enter your nickname',
@@ -60,7 +60,6 @@ final class FrostedCard extends StatelessWidget {
                     },
                   ),
                   SizedBox(height: 20),
-
                   TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
@@ -78,6 +77,30 @@ final class FrostedCard extends StatelessWidget {
                       }
                       return null;
                     },
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      // TODO: 로그인 처리로직
+                    },
+                    child: Text('Sign In'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue.withOpacity(0.7),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: onSignUpTap,
+                    child: Text('Sign Up'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey.withOpacity(0.7),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
                   ),
                 ],
               ),

@@ -9,7 +9,7 @@ final class FlowFieldScreen extends StatefulWidget {
 class _FlowFieldScreenState extends State<FlowFieldScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   List<Particle> particles = [];
-  final int particleCount = 2000;
+  final int particleCount = 3000;
   double scl = 20;
   int cols = 0, rows = 0;
   List<Offset> flowfield = [];
@@ -112,7 +112,6 @@ final class Particle {
         vel = Offset.zero,
         acc = Offset.zero,
         maxSpeed = Random().nextDouble() * 1.5,
-        // Speed control
         color = _randomOceanColor();
 
   static Color _randomOceanColor() {
