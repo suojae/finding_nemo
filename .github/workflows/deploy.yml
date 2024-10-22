@@ -1,0 +1,29 @@
+name: Deploy on Main Branch Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
+
+    - name: Deploy via SSH
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << 'EOF'
+        cd 로키리눅스 가상화해둔곳 경로 나중에 입력
+        git pull origin main
+        ./deploy_script.sh  # 리눅스에 저장한 스크립트 파일
+        echo "Deployment completed successfully."
+        EOF
+
